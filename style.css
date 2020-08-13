@@ -1,3 +1,41 @@
 body{
   background-color: gray
 }
+input{
+  display: flex;
+  margin: auto;
+
+}
+.remove{
+  border: red solid 10px;
+  display: flex;
+  margin-right: 0px;
+
+}
+#picture{
+  border: 10px black red;
+  height: 10px;
+  width: 30px;
+  display: flex;
+  flex-direction: row;
+  flex: 1;
+}
+#flex{
+  display: flex;
+  flex-direction: row;
+  flex: 1;
+}
+#Add-New {
+
+  background: rgba(0, 0, 0, .1);
+}
+
+#flex-row{
+  display: flex;
+  flex-direction: row;
+}
+
+#flex-column{
+  display: flex;
+  flex-direction: column;
+}
