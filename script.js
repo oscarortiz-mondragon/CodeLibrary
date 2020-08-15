@@ -15,16 +15,18 @@ container.style.cssText = "display:flex; flex-direction: column;"
 for(let i = 0; i < myLibrary.length; i++)
 { 
   div = document.createElement('div')
-  let remove = document.createElement("input")
-  remove.className = "remove"
-  remove.setAttribute("type","button")
-  remove.setAttribute("value","remove")
+
+  let remove = document.createElement('i')
+  remove.className = "fas fa-trash"
+  remove.id = "remove"
   div.style.cssText = "display:flex; margin: 5px; padding: 10px; border: black 10px solid; background-color: blue; text-align: center; justify-content: center; align-items: center; font-size: 30px"
  
   div.textContent = myLibrary[i] + ", " + myAuthor[i]+ ", " + myPage[i]
   container.appendChild(div)
   div.appendChild(remove)
+  
 }
+
 
 // Attempt of Prototype Use
 function Book(author, title, pages) 
@@ -45,9 +47,9 @@ function addBookToLibrary()
 
   
 
-  let title = prompt("book Title Please!")
-  let author = prompt("author Name")
-  let pages = prompt("page number")
+  let title = document.getElementById("Title").value
+  let author = document.getElementById("Author").value
+  let pages = document.getElementById("Pages").value
 
   myLibrary.push(title)
   myAuthor.push(author)
@@ -56,10 +58,8 @@ function addBookToLibrary()
   for(let i = 0; i < myLibrary.length; i++)
     { 
       div = document.createElement('div')
-      let remove = document.createElement("input")
-      remove.className = "remove"
-      remove.setAttribute("type","button")
-      remove.setAttribute("value","remove")
+      let remove = document.createElement('i')
+      remove.className = "fas fa-trash"
       div.style.cssText = "display:flex; margin: 5px; padding: 10px; border: black 10px solid; background-color: blue; text-align: center; justify-content: center; align-items: center; font-size: 30px"
      
       div.textContent = myLibrary[i] + ", " + myAuthor[i]+ ", " + myPage[i]
@@ -75,8 +75,16 @@ add.onclick = function()
   addBookToLibrary()
 }
 
-// Remove Book
-let remove = document.getElementById("Remove")
+
+// To Delete Book
+for(let i = 0; i < myLibrary.length; i++){
+let touch = document.querySelector("#remove")
+touch.addEventListener("click",function(){
+  for(let j = 0; j < myLibrary.length; j++)
+  div[j].innerHTML = ""
+})
+}
+
 
 
 

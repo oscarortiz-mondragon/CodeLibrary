@@ -39,3 +39,10 @@ input{
   display: flex;
   flex-direction: column;
 }
+.fas:hover{
+
+  color: red;
+}
+i{
+cursor: pointer;
+}
