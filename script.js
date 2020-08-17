@@ -8,6 +8,7 @@ let myAuthor =
 let myPage = 
 ["500","300","200","90","50"];
 
+// Making demo Books
 let container = document.querySelector("#container")
 
 container.style.cssText = "display:flex; flex-direction: column;"
@@ -15,14 +16,19 @@ container.style.cssText = "display:flex; flex-direction: column;"
 for(let i = 0; i < myLibrary.length; i++)
 { 
   div = document.createElement('div')
+  div.id = "yourBook" + [i]
 
   let remove = document.createElement('i')
   remove.className = "fas fa-trash"
   remove.id = "remove"
   div.style.cssText = "display:flex; margin: 5px; padding: 10px; border: black 10px solid; background-color: blue; text-align: center; justify-content: center; align-items: center; font-size: 30px"
  
-  div.textContent = myLibrary[i] + ", " + myAuthor[i]+ ", " + myPage[i]
+  div.textContent = myLibrary[i] + ", " + myAuthor[i]+ ", " + myPage[i] + " pages"
   container.appendChild(div)
+  remove.addEventListener("click", trash => {
+    
+    document.getElementById("yourBook" + [i]).remove()
+  })
   div.appendChild(remove)
   
 }
@@ -59,11 +65,13 @@ function addBookToLibrary()
     { 
       div = document.createElement('div')
       let remove = document.createElement('i')
+     
       remove.className = "fas fa-trash"
       div.style.cssText = "display:flex; margin: 5px; padding: 10px; border: black 10px solid; background-color: blue; text-align: center; justify-content: center; align-items: center; font-size: 30px"
      
       div.textContent = myLibrary[i] + ", " + myAuthor[i]+ ", " + myPage[i]
       container.appendChild(div)
+      
       div.appendChild(remove)
       
     } 
@@ -76,15 +84,13 @@ add.onclick = function()
 }
 
 
-// To Delete Book
-for(let i = 0; i < myLibrary.length; i++){
-let touch = document.querySelector("#remove")
-touch.addEventListener("click",function(){
-  for(let j = 0; j < myLibrary.length; j++)
-  div[j].innerHTML = ""
-})
-}
 
 
 
 
+
+// Ideas on how to remove
+// First when you click the trashcan you get the value of it,
+// you then use that value to delete that number div. By Class name?
+// You will also need to remove that title,pages,and author from the array.
+// this can done with splice(number,1)
